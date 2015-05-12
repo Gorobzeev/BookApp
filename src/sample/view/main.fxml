@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane id="AnchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" prefWidth="625.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controller.Controller">
+    <children>
+        <TableView fx:id="tableBooks" layoutX="12.0" layoutY="62.0" prefHeight="324.0" prefWidth="600.0">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="80.0" text="№" />
+                <TableColumn fx:id="titleColumn" prefWidth="170.0" text="Title" />
+                <TableColumn fx:id="authorColumn" prefWidth="170.0" text="Author" />
+                <TableColumn fx:id="jenreColumn" prefWidth="180.0" text="Jenre" />
+            </columns>
+        </TableView>
+        <Label layoutX="14.0" layoutY="18.0" text="Books:">
+            <font>
+                <Font name="Verdana" size="24.0" />
+            </font>
+        </Label>
+      <HBox layoutX="432.0" layoutY="402.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="13.0">
+         <children>
+            <Button fx:id="add" layoutX="432.0" layoutY="402.0" mnemonicParsing="false" text="add" />
+            <Button fx:id="update" layoutX="493.0" layoutY="402.0" mnemonicParsing="false" text="update" />
+            <Button fx:id="delete" layoutX="553.0" layoutY="402.0" mnemonicParsing="false" text="delete" />
+         </children>
+      </HBox>
+    </children>
+</AnchorPane>
