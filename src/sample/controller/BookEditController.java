@@ -1,21 +1,59 @@
 package sample.controller;
 
+import javafx.event.ActionEvent;
+import javafx.fxml.Initializable;
+import javafx.stage.*;
 import sample.Books.Book;
 
-/**
- * Created by Admin on 14.05.2015.
- */
-public class BookEditController {
+import java.awt.*;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.fxml.FXML;
+import javafx.scene.control.TextField;
 
 
 
+public  class BookEditController{
 
+    @FXML
+    private TextField id;
 
+    @FXML
+    private TextField title;
 
+    @FXML
+    private TextField author;
 
+    @FXML
+    private TextField jenre;
 
-    public void setBook(Book book){
-
+    @FXML
+    private void initialize(){
 
     }
+
+
+
+
+    public void handleSaveAction(ActionEvent actionEvent) {
+        closeCurrentWindow();
+    }
+
+    private void closeCurrentWindow() {
+        javafx.stage.Window window = jenre.getScene().getWindow();
+        window.hide();
+    }
+
+    public void setBook(Book book) {
+        title.textProperty().bindBidirectional(book.titleProperty());
+        author.textProperty().bindBidirectional(book.authorProperty());
+        jenre.textProperty().bindBidirectional(book.jenreProperty());
+
+    }
+
+
+
+
+
 }

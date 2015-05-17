@@ -72,7 +72,7 @@ public class Controller  {
         if (selectedBook != null){
 
             try {
-                FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("views/user_edit.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("view/bookEdit.fxml"));
                 Parent root = fxmlLoader.load();
                 BookEditController  controller = fxmlLoader.getController();
                 controller.setBook(selectedBook);
@@ -87,7 +87,7 @@ public class Controller  {
 
     public void handleCreateAction (ActionEvent actionEvent){
         try {
-            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("views/user_edit.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("view/bookEdit.fxml"));
             Parent root = fxmlLoader.load();
             BookEditController  controller = fxmlLoader.getController();
             Book  newBook = new Book(booksData.size()+1,"","","");
@@ -133,4 +133,6 @@ public class Controller  {
 
         }
     }
+
+
 }
