@@ -5,6 +5,7 @@ import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.print.Printer;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.TableView;
@@ -19,9 +20,7 @@ import sample.Main;
 
 import java.awt.*;
 import java.beans.EventHandler;
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 
@@ -48,7 +47,7 @@ public class Controller  {
 
 
     @FXML
-    private void initialize() {
+    private void initialize(){
         initData();
         idColumn.setCellValueFactory(new PropertyValueFactory<Book, Integer>("id")); //заполняет данные в таблицу
         titleColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("title"));
@@ -56,6 +55,8 @@ public class Controller  {
         jenreColumn.setCellValueFactory(new PropertyValueFactory<Book, String>("jenre"));
 
         tableBooks.setItems(booksData);
+
+
 
 
     }
@@ -91,12 +92,39 @@ public class Controller  {
             Parent root = fxmlLoader.load();
             BookEditController  controller = fxmlLoader.getController();
             Book  newBook = new Book(booksData.size()+1,"","","");
+            booksData.add(newBook);
             controller.setBook(newBook);
             showNewWindow("Create Book", root);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
+    }
+
+    public void handleSaveAction (ActionEvent activeEvent){
+        File file = new File("D:/MyProjects/BookApp5/data.txt");
+        try {
+
+            if(!file.exists()){
+                file.createNewFile();
+            }
+
+            PrintWriter out = new PrintWriter(file.getAbsoluteFile());
+
+            try {
+
+                for (int y=0; y < booksData.size(); y++){
+                    Book bookTmp= booksData.get(y);
+                    out.print(bookTmp.getId() + ";" +  bookTmp.getAuthor() + ";" + bookTmp.getTitle() + ";" + bookTmp.getJenre()+"\n");
+                }
+
+            } finally {
+
+                out.close();
+            }
+        } catch(IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private void showNewWindow(String s, Parent root) {
@@ -135,4 +163,9 @@ public class Controller  {
     }
 
 
+
+
 }
+
+
+

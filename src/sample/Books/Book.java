@@ -65,5 +65,10 @@ public class Book {
     public SimpleStringProperty jenreProperty() {
         return jenre;
     }
+
+
+
+
+
 }
 

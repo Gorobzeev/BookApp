@@ -22,10 +22,11 @@
         </Label>
         <HBox layoutX="432.0" layoutY="402.0" spacing="5.0" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="13.0">
             <children>
-                <Button fx:id="add" onAction="#handleCreateAction" layoutX="432.0" layoutY="402.0" mnemonicParsing="false" text="add" />
-                <Button fx:id="update" onAction="#handleUpdateAction" layoutX="493.0" layoutY="402.0" mnemonicParsing="false" text="update" />
-                <Button fx:id="delete" onAction="#handleDeleteAction" layoutX="553.0" layoutY="402.0" mnemonicParsing="false" text="delete" />
+                <Button fx:id="add" layoutX="432.0" layoutY="402.0" mnemonicParsing="false" onAction="#handleCreateAction" text="Add" />
+                <Button fx:id="update" layoutX="493.0" layoutY="402.0" mnemonicParsing="false" onAction="#handleUpdateAction" text="Update" />
+                <Button fx:id="delete" layoutX="553.0" layoutY="402.0" mnemonicParsing="false" onAction="#handleDeleteAction" text="Delete" />
             </children>
         </HBox>
+      <Button fx:id="save" layoutX="14.0" layoutY="395.0" mnemonicParsing="false" onAction="#handleSaveAction" text="Save" />
     </children>
 </AnchorPane>

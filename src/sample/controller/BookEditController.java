@@ -3,6 +3,7 @@ package sample.controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.Initializable;
 import javafx.stage.*;
+import javafx.util.StringConverter;
 import sample.Books.Book;
 
 import java.awt.*;
@@ -33,9 +34,6 @@ public  class BookEditController{
 
     }
 
-
-
-
     public void handleSaveAction(ActionEvent actionEvent) {
         closeCurrentWindow();
     }
@@ -49,11 +47,16 @@ public  class BookEditController{
         title.textProperty().bindBidirectional(book.titleProperty());
         author.textProperty().bindBidirectional(book.authorProperty());
         jenre.textProperty().bindBidirectional(book.jenreProperty());
+        id.textProperty().bindBidirectional(book.idProperty(), new StringConverter<Number>() {
+            @Override
+            public String toString(Number object) {
+                return String.valueOf(object);
+            }
 
+            @Override
+            public Number fromString(String string) {
+                return Integer.parseInt(string);
+            }
+        });
     }
-
-
-
-
-
 }
